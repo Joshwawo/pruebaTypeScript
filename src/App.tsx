@@ -20,16 +20,13 @@ function App() {
 
   useEffect(() => {
     getPokemon().then((data) => {
-      // setPokeg1(data);
       setPokeg1(data);
     });
   }, []);
 
-  //raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/899.png
-
-  https: return (
-    <div className=" ">
-      <p className=" text-2xl mb-14">Hola desde la app.tsx</p>
+  return (
+    <div className=" root">
+      <p className=" text-2xl mb-14">Hola desde la app.tsx || Pokemon primera generación</p>
       <div className=" grid sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3">
         {pokeg1.results?.map(({ name }, index: number) => {
           // console.log(index + 1);

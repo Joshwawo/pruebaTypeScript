@@ -11,26 +11,15 @@ import RandomId from "./pages/RandomId";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-
-<BrowserRouter >
-   <p>Pokemon app</p>
-   <Navbar/>
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/:id" element={<Home />} />
-      <Route path="/random" element={<Random/>} />
-      <Route path="/random/:id" element={<RandomId/>} />
-      <Route path="*" element={<Error404/>} />
-    </Routes>
-      
-  </BrowserRouter>
-
-    {/* <BrowserRouter>
-      <Routes>      
-        <Route path="/" element={<App />}>
-          <Route index element={<Home/>}/>
-        </Route>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/:id" element={<Home />} />
+        <Route path="/random" element={<Random />} />
+        <Route path="/random/:id" element={<RandomId />} />
+        <Route path="*" element={<Error404 />} />
       </Routes>
-    </BrowserRouter> */}
+    </BrowserRouter>
   </React.StrictMode>
 );
