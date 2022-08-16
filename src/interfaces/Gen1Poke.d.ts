@@ -165,7 +165,7 @@ export interface OfficialArtwork {
 }
 
 export interface Stat {
-    base_stat: number;
+    base_stat: number | undefined;
     effort:    number;
     stat:      Species;
 }
