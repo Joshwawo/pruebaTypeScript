@@ -177,7 +177,7 @@ const Home = () => {
     <div className="root">
       <p className=" text-2xl font-bold">No existe el pokemon</p>
       <Link to="/">
-        <button className=" mt-5 font-semibold bg-black text-white pt-2 px-2 hover:bg-yellow-400 hover:text-black">
+        <button className=" rounded-md mt-5 font-semibold bg-black text-white pt-2 px-2 hover:bg-gray-400 hover:text-black">
           Regresar
         </button>
       </Link>
