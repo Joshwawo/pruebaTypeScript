@@ -6,3 +6,13 @@
 html{
     font-family: 'Roboto', sans-serif;
 }
+
+
+.bg-img {
+    background-image: url(https://raw.githubusercontent.com/janselroa/pokemon-web/main/img/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
+
+}

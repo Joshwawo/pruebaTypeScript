@@ -9,11 +9,10 @@ const Navbar = () => {
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
-            
-              <Link to="/">
-                <h2 className="text-2xl font-bold">Powiki</h2>
-              </Link>
-            
+            <Link to="/">
+              <h2 className="text-2xl font-bold">Powiki</h2>
+            </Link>
+
             <div className="md:hidden">
               <button
                 className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
@@ -60,9 +59,9 @@ const Navbar = () => {
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
               <li className="text-gray-600 hover:text-green-600">
-             <Link to="">
-                 <p >Home</p>
-             </Link>
+                <Link to="">
+                  <p>Home</p>
+                </Link>
               </li>
               <li className="text-gray-600 hover:text-green-600">
                 <Link to="random">
@@ -70,10 +69,10 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="text-gray-600 hover:text-green-600">
-                <p>About US</p>
+                <p>About me</p>
               </li>
               <li className="text-gray-600 hover:text-green-600">
-                <p>Contact US</p>
+                <p>Contact Me</p>
               </li>
             </ul>
           </div>

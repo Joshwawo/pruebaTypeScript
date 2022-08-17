@@ -66,7 +66,6 @@ const Home = () => {
     specie: helperXId.egg_groups,
     nameJp: helperXId.names?.[0].name,
     colores: helperXId.color?.name,
-    // debilidad: helperXId.weaknesses?.[0].type?.name,
   };
   const { specie, nameJp, colores } = objHelper;
 
@@ -85,7 +84,7 @@ const Home = () => {
     weight,
   } = objPokemon;
   //TODO:Hacer que cuando le de click a una imagen se cambie por la imagen de la version shiny
-  let coco = ` ${
+  let coloresDFondo = ` ${
     tipo1 == "grass"
       ? "bg-green-200"
       : tipo1 == "poison"
@@ -165,16 +164,12 @@ const Home = () => {
       : ""
   } `;
 
-  // console.log(nameJp);
-  let percentaje = 66;
   let hp2 = stats?.[0]?.base_stat;
   let attack3 = stats?.[1]?.base_stat;
   let defense = stats?.[2]?.base_stat;
   let spAtack = stats?.[3]?.base_stat;
   let spDefense = stats?.[4]?.base_stat;
   let speed6 = stats?.[5]?.base_stat;
-
-  // console.log(stats);
 
   return cargando ? (
     <Spinner />
@@ -188,7 +183,7 @@ const Home = () => {
       </Link>
     </div>
   ) : (
-    <div className={`h-scree ${coco} `}>
+    <div className={`h-scree ${coloresDFondo} `}>
       <section className=" header root">
         <p className="text-4xl text-gray-500/60 relative top-[5rem] text-center ">
           {nameJp}
@@ -198,7 +193,7 @@ const Home = () => {
         </Link>
 
         <div className="md:flex">
-          <div className="derecha md:w-1/2">
+          <div className=" md:w-1/2 //!derecha">
             <img
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${idPoke}.png`}
               alt={name}
@@ -233,7 +228,7 @@ const Home = () => {
               />
             </div>
           </div>
-          <div className="izquierda md:w-1/2 md:mt-20 text-center">
+          <div className=" md:w-1/2 md:mt-20 text-center //!izquierda">
             <p className="font-bold text-2xl uppercase">{name}</p>
             <p>#{idPoke}</p>
             <div className="tipos flex w-28 gap-2 mx-auto mt-2">
@@ -258,13 +253,13 @@ const Home = () => {
               })}
             </div>
             <div className="medidas mt-3 font-semibold">
-              <p className="">Weight: {weight}m</p>
-              <p>Height: {height}kg</p>
+              <p className="">Weight: {weight}kg</p>
+              <p>Height: {height}m</p>
             </div>
           </div>
         </div>
       </section>
-      <section className="root ">
+      <section className="root //!Circulos">
         <p className=" mb-5 text-center text-2xl">Stats</p>
         <div className=" flex items-center justify-center gap-2   //!CIRCULOS">
           <div className="divo" style={{ width: 100, height: 100 }}>
