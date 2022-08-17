@@ -138,9 +138,9 @@ const Home = () => {
       : tipo1 == "electric"
       ? "bg-[#f3c715]"
       : tipo1 == "ice"
-      ? "bg-blue-300"
+      ? "bg-blue-400"
       : tipo1 == "fighting"
-      ? "bg-[#df2a23]"
+      ? "bg-[#db4c47]"
       : tipo1 == "psychic"
       ? "bg-[#F85888]"
       : tipo1 == "ground"
@@ -161,6 +161,45 @@ const Home = () => {
       ? "bg-[#b1b1e4]"
       : tipo1 == "fairy"
       ? "bg-[#f1718d]"
+      : ""
+  } `;
+  let textosColores = ` ${
+    tipo1 == "grass"
+      ? "text-green-400"
+      : tipo1 == "poison"
+      ? "text-purple-400"
+      : tipo1 == "normal"
+      ? "text-[#f0f074]"
+      : tipo1 == "fire"
+      ? "text-[#f86b07]"
+      : tipo1 == "water"
+      ? "text-[#346cee]"
+      : tipo1 == "electric"
+      ? "text-[#c7a313]"
+      : tipo1 == "ice"
+      ? "text-blue-400"
+      : tipo1 == "fighting"
+      ? "text-[#8f0702]"
+      : tipo1 == "psychic"
+      ? "text-[#ffafc7]"
+      : tipo1 == "ground"
+      ? "text-[#927115]"
+      : tipo1 == "flying"
+      ? "text-[#855ff7]"
+      : tipo1 == "bug"
+      ? "text-[#d8f006]"
+      : tipo1 == "rock"
+      ? "text-[#f0ca24]"
+      : tipo1 == "ghost"
+      ? "text-[#8e75b6]"
+      : tipo1 == "dragon"
+      ? "text-[#a58ae4]"
+      : tipo1 == "dark"
+      ? "text-[#35312e]"
+      : tipo1 == "steel"
+      ? "text-[#8c8ce2]"
+      : tipo1 == "fairy"
+      ? "text-[#ec5b7b]"
       : ""
   } `;
 
@@ -184,14 +223,12 @@ const Home = () => {
     </div>
   ) : (
     <div className={`h-scree ${coloresDFondo} `}>
-      <section className=" header root">
-        <p className="text-4xl text-gray-500/60 relative top-[5rem] text-center ">
+       
+      <section className="  header root">
+
+        <p className={` relative md:top-[5rem] text-4xl md:right-0  md:text-9xl ${textosColores}   text-center`}>
           {nameJp}
         </p>
-        <Link to="/">
-          <p className="text-center text-2xl">Volver</p>
-        </Link>
-
         <div className="md:flex">
           <div className=" md:w-1/2 //!derecha">
             <img
@@ -229,7 +266,7 @@ const Home = () => {
             </div>
           </div>
           <div className=" md:w-1/2 md:mt-20 text-center //!izquierda">
-            <p className="font-bold text-2xl uppercase">{name}</p>
+            <p className={`font-bold text-2xl uppercase ${textosColores}`}>{name}</p>
             <p>#{idPoke}</p>
             <div className="tipos flex w-28 gap-2 mx-auto mt-2">
               <img

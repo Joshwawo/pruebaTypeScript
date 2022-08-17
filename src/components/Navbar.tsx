@@ -10,7 +10,7 @@ const Navbar = () => {
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Link to="/">
-              <h2 className="text-2xl font-bold">Powiki</h2>
+              <h2 className="text-2xl font-bold">Jorge Powiki</h2>
             </Link>
 
             <div className="md:hidden">
@@ -59,7 +59,7 @@ const Navbar = () => {
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
               <li className="text-gray-600 hover:text-green-600">
-                <Link to="">
+                <Link to="/">
                   <p>Home</p>
                 </Link>
               </li>
@@ -68,12 +68,12 @@ const Navbar = () => {
                   <p>Random Pokemon</p>
                 </Link>
               </li>
-              <li className="text-gray-600 hover:text-green-600">
+              {/* <li className="text-gray-600 hover:text-green-600">
                 <p>About me</p>
               </li>
               <li className="text-gray-600 hover:text-green-600">
                 <p>Contact Me</p>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

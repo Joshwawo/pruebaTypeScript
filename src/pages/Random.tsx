@@ -41,12 +41,13 @@ function Random() {
       console.log(error);
     }
 
-    setCargando(!cargando);
+    // setCargando(!cargando);
   };
 
   useEffect(() => {
     getPokemon(numero).then((data) => {
       setPokimon(data);
+      // setCargando(!cargando);
     });
     helperRandom(numero);
   }, [numero]);
@@ -60,7 +61,7 @@ function Random() {
   };
   const { id, name, weight, abilities, tipo1, tipo2 } = objetoPokemon;
 
-  return cargando ? (
+  return !cargando ? (
     <Spinner />
   ) : (
     <section className="text-gray-600 body-font ">
@@ -92,7 +93,7 @@ function Random() {
                 <div className="flex items-center flex-wrap ">
                   <button
                     onClick={handlePokemon}
-                    className="bg-gradient-to-r mx-auto from-cyan-400 to-blue-400 hover:scale-105 drop-shadow-md  shadow-cla-blue px-4 py-1 rounded-lg"
+                    className="bg-gradient-to-r mx-auto from-gray-100 to-gray-400 hover:scale-105 drop-shadow-md  shadow-cla-blue px-4 py-1 rounded-lg"
                   >
                     Generate Random Pokemon
                   </button>
