@@ -1,7 +1,6 @@
 import React from 'react'
 
 import {Link} from 'react-router-dom'
-import { Gen1 } from '../interfaces/Gen1';
 
 
 const Card = ({pokeg1}:any):any => {
