@@ -3,10 +3,10 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 
-const Card = ({pokeg1}:any):any => {
+const Card = ({children}:any):any => {
   return (
     <div className=" paraXl grid sm:grid-cols-2 md:grid-cols-2 place-items-center xl:grid-cols-3">
-        {pokeg1.results?.map(({ name, url }:any, index: number) => {
+        {children.results?.map(({ name, url }:any, index: number) => {
           let urlImagen = url.split("/");
           let numerosUrl = urlImagen[urlImagen.length - 2];
         //   console.log(numerosUrl);
