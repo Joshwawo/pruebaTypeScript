@@ -45,10 +45,10 @@ const Card = ({ children }: any): any => {
          
         //Has una comprobacion para que no se repita la imagen en el localStorage
         if(window.localStorage.getItem(numerosUrl) === null){
-          console.log('El localStorage esta vacio asi que lo voy a llenar')
+          // console.log('El localStorage esta vacio asi que lo voy a llenar')
           window.localStorage.setItem(numerosUrl, imagenforFetch);
         }else{
-          console.log('El localStorage tiene datos almacenados')
+          // console.log('El localStorage tiene datos almacenados')
         }
 
         // console.log(window.localStorage.getItem(numerosUrl));

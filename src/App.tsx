@@ -273,37 +273,37 @@ const App = () => {
           {ocultartGen2 ? null : <Generacion2 />}
 
           {ocultarGen3 ? null : (
-            <p className=" pt-5 text-xl text-gray-500">
+            <p className=" pt-5 text-center text-xl text-gray-500">
               Pronto la generacion 3
             </p>
           )}
 
           {ocultarGen4 ? null : (
-            <p className=" pt-5 text-xl text-gray-500">
+            <p className=" pt-5 text-center text-xl text-gray-500">
               Pronto la generacion 4
             </p>
           )}
 
           {ocultarGen5 ? null : (
-            <p className=" pt-5 text-xl text-gray-500">
+            <p className=" pt-5 text-center text-xl text-gray-500">
               Pronto la generacion 5
             </p>
           )}
 
           {ocultarGen6 ? null : (
-            <p className=" pt-5 text-xl text-gray-500">
+            <p className=" pt-5 text-center text-xl text-gray-500">
               Pronto la generacion 6
             </p>
           )}
 
           {ocultarGen7 ? null : (
-            <p className=" pt-5 text-xl text-gray-500">
+            <p className=" pt-5 text-center text-xl text-gray-500">
               Pronto la generacion 7
             </p>
           )}
 
           {ocultarGen8 ? null : (
-            <p className=" pt-5 text-xl text-gray-500">
+            <p className=" pt-5 text-center text-xl text-gray-500">
               Pronto la generacion 8
             </p>
           )}
@@ -351,7 +351,7 @@ const App = () => {
 
           <div className=" ">
             {pokeg1.results?.length === 0 ? (
-              <div className="max-w-md py-4 px-6 shadow-2xl shadow-red-800 rounded-lg bg-red-600 mx-auto mt-10">
+              <div className="max-w-md my-20 py-4 px-6 shadow-2xl shadow-red-800 rounded-lg bg-red-600 mx-auto mt-10">
                 <div className="flex flex-col">
                   <div className="flex items-center gap-2">
                     <svg
