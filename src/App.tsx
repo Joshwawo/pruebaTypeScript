@@ -20,8 +20,6 @@ const App = () => {
   const [busqueda, setBusqueda] = useState<string>("");
   const [cargando, setCargando] = useState<boolean>(true);
 
-
-  
   const [ocultarGen1, setOcultarGen1] = useState<boolean>(true);
   const [ocultartGen2, setOcultartGen2] = useState<boolean>(true);
   const [ocultarGen3, setOcultarGen3] = useState<boolean>(true);
@@ -47,6 +45,11 @@ const App = () => {
       // console.log(data);
     });
   }, []);
+
+
+  // console.log(window.localStorage.getItem('pokeg2') + 'Hola desde App.tsx');
+
+  
 
   const handerChange = (evento: React.ChangeEvent<HTMLInputElement>) => {
     // console.log(evento.target.value);
@@ -194,6 +197,7 @@ const App = () => {
         <p className=" tracking-widest  title-font font-medium text-gray-500 mb-1 text-center py-5 ">
           Elige entre las 8 generaciones de pokémon
         </p>
+        
         <div className="flex items-center justify-center">
           <div
             className="inline-flex shadow-md hover:shadow-lg focus:shadow-lg"
@@ -266,19 +270,43 @@ const App = () => {
         </div>
 
         <div className=" //!Validacion de renderizado">
-          {ocultartGen2 ? null : <Generacion2/>}
+          {ocultartGen2 ? null : <Generacion2 />}
 
-          {ocultarGen3 ? null : (<p className=" pt-5 text-xl text-gray-500">Pronto la generacion 3</p>)}
+          {ocultarGen3 ? null : (
+            <p className=" pt-5 text-xl text-gray-500">
+              Pronto la generacion 3
+            </p>
+          )}
 
-          {ocultarGen4 ? null : (<p className=" pt-5 text-xl text-gray-500">Pronto la generacion 4</p>)}
+          {ocultarGen4 ? null : (
+            <p className=" pt-5 text-xl text-gray-500">
+              Pronto la generacion 4
+            </p>
+          )}
 
-          {ocultarGen5 ? null : (<p className=" pt-5 text-xl text-gray-500">Pronto la generacion 5</p>)}
+          {ocultarGen5 ? null : (
+            <p className=" pt-5 text-xl text-gray-500">
+              Pronto la generacion 5
+            </p>
+          )}
 
-          {ocultarGen6 ? null : (<p className=" pt-5 text-xl text-gray-500">Pronto la generacion 6</p>)}
+          {ocultarGen6 ? null : (
+            <p className=" pt-5 text-xl text-gray-500">
+              Pronto la generacion 6
+            </p>
+          )}
 
-          {ocultarGen7 ? null : (<p className=" pt-5 text-xl text-gray-500">Pronto la generacion 7</p>)}
+          {ocultarGen7 ? null : (
+            <p className=" pt-5 text-xl text-gray-500">
+              Pronto la generacion 7
+            </p>
+          )}
 
-          {ocultarGen8 ? null : (<p className=" pt-5 text-xl text-gray-500">Pronto la generacion 8</p>)}
+          {ocultarGen8 ? null : (
+            <p className=" pt-5 text-xl text-gray-500">
+              Pronto la generacion 8
+            </p>
+          )}
         </div>
         <ToastContainer />
 
@@ -349,7 +377,7 @@ const App = () => {
               ""
             )}
           </div>
-          
+
           {/* <Card pokeg1={pokeg1}></Card> */}
           <Card>{pokeg1}</Card>
         </>

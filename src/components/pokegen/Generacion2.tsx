@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Children } from "react";
 import axios from "axios";
 import { Gen1 } from "../../interfaces/Gen1";
 import { Card } from "../Card";
@@ -11,22 +11,61 @@ const Generacion2 = () => {
   const [pokeg2, setPokeg2] = useState<Gen1>({} as Gen1);
   const [pokeVacio, setPokeVacio] = useState<Gen1>({} as Gen1);
   const [busqueda, setBusqueda] = useState<string>("");
+  const [pokelocalStorage, setPokelocalStorage] = useState<Gen1>(
+    JSON.parse(localStorage.getItem("pokeg2") || "[]")
+  );
+
+  //   TODO: Hacer una funcion que me devuelva el pokemon que esta en el localStorage
+  // TODO:  BORRAR TODO EL CAGADERO QUE HIC
+
+  //   console.log(pokelocalStorage.results);
 
   const getPokemon = async (): Promise<Gen1> => {
     const { data } = await axios.get<Gen1>(
-      //   `https://pokeapi.co/api/v2/pokemon-species/2/`
-      //   `https://pokeapi.co/api/v2/pokemon?limit=100&offset=151`
       `https://pokeapi.co/api/v2/pokemon?limit=100&offset=151`
     );
     return data;
   };
 
   useEffect(() => {
-    getPokemon().then((data) => {
-      setPokeg2(data);
-      setPokeVacio(data);
-    });
+    if (window.localStorage.getItem("pokeg2") === null) {
+      console.log("No hay nada en el localStorage asi que voy a hacer Fetch ");
+      getPokemon().then((data) => {
+        setPokeg2(data);
+        window.localStorage.setItem("pokeg2", JSON.stringify(data));
+      });
+    } else {
+      console.log(
+        "Hay algo en el localStorage desde el useEffect y no hago fetch "
+      );
+      // setPokeg2(JSON.parse(localStorage.getItem("pokeg2") || "[]"));
+      // setPokeg2(localStorage.getItem("pokeg2") || "[]");
+      // setPokelocalStorage(JSON.parse(localStorage.getItem("pokeg2") || "[Akitoy]"));
+      setPokeg2(JSON.parse(localStorage.getItem("pokeg2") || "[Akitoy]"));
+      //Gurdar sola la imgaen en el localStorage
+      // console.log(localStorage.getItem("pokeg2"));
+      
+      //Obtener el valor de pokeg2 del localStorage
+      //  console.log(pokelocalStorage.results);
+
+
+
+      // (localStorage.getItem("pokeg2") || "[]").results.map((pokemon: any) => {
+      //   localStorage.setItem(pokemon.name, pokemon.url);
+      // }
+    }
   }, []);
+
+  const handleDeleteLocalStorage = () => {
+    localStorage.removeItem("pokeg2");
+    console.log("LocalStorage borrado");
+  };
+
+  window.localStorage.length == 0
+    ? console.log("No hay nada en el localStorage desde la funcion >=0")
+    : console.log("Hay algo en el localStorage desde la comprobacion ===0");
+
+  //?Esta parte es de los filtros
 
   const handerChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setBusqueda(e.target.value);
@@ -34,24 +73,30 @@ const Generacion2 = () => {
   };
 
   const filtratPokemon = (busqueda: string): void => {
-    const resultado = pokeVacio.results?.filter((pokeBusqueda: any): void => {
-      if (
-        pokeBusqueda.name
-          .toString()
-          .toLowerCase()
-          .includes(busqueda.toLowerCase())
-      ) {
-        return pokeBusqueda;
+    const resultado = pokelocalStorage.results?.filter(
+      (pokeBusqueda: any): void => {
+        if (
+          pokeBusqueda.name
+            .toString()
+            .toLowerCase()
+            .includes(busqueda.toLowerCase())
+        ) {
+          return pokeBusqueda;
+        }
       }
-    });
+    );
 
     setPokeg2({ ...pokeg2, results: resultado });
   };
 
-  
-
   return (
     <div className=" ">
+      <button
+        onClick={handleDeleteLocalStorage}
+        className="bg-red-200 py-2 px-4 flex justify-center items-center root my-2 rounded-md text-red-500 hover:bg-red-300"
+      >
+        Eliminar LocalStorage{" "}
+      </button>
       <form className="md:col-span-4 flex items-center justify-center gap-2 mt-10">
         <input
           type="text"
