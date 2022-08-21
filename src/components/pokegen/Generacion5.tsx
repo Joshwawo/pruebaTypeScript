@@ -7,12 +7,12 @@ import { buildStyles } from "react-circular-progressbar";
 import { Name } from "../../interfaces/HelperXId";
 import { Link } from "react-router-dom";
 
-const Generacion2 = () => {
-  const [pokeg2, setPokeg2] = useState<Gen1>({} as Gen1);
+const Generacion5 = () => {
+  const [pokeg5, setPokeg5] = useState<Gen1>({} as Gen1);
   const [pokeVacio, setPokeVacio] = useState<Gen1>({} as Gen1);
   const [busqueda, setBusqueda] = useState<string>("");
   const [pokelocalStorage, setPokelocalStorage] = useState<Gen1>(
-    JSON.parse(localStorage.getItem("pokeg2") || "[]")
+    JSON.parse(localStorage.getItem("pokeg5") || "[]")
   );
 
   //   TODO: Hacer una funcion que me devuelva el pokemon que esta en el localStorage
@@ -22,41 +22,41 @@ const Generacion2 = () => {
 
   const getPokemon = async (): Promise<Gen1> => {
     const { data } = await axios.get<Gen1>(
-      `https://pokeapi.co/api/v2/pokemon?limit=100&offset=151`
+      `https://pokeapi.co/api/v2/pokemon?limit=156&offset=493`
     );
     return data;
   };
 
   useEffect(() => {
-    if (window.localStorage.getItem("pokeg2") === null) {
+    if (window.localStorage.getItem("pokeg5") === null) {
       // console.log("No hay nada en el localStorage asi que voy a hacer Fetch ");
       getPokemon().then((data) => {
-        setPokeg2(data);
-        window.localStorage.setItem("pokeg2", JSON.stringify(data));
+        setPokeg5(data);
+        window.localStorage.setItem("pokeg5", JSON.stringify(data));
       });
     } else {
       console
         .log
         // "Hay algo en el localStorage desde el useEffect y no hago fetch "
         ();
-      // setPokeg2(JSON.parse(localStorage.getItem("pokeg2") || "[]"));
-      // setPokeg2(localStorage.getItem("pokeg2") || "[]");
-      // setPokelocalStorage(JSON.parse(localStorage.getItem("pokeg2") || "[Akitoy]"));
-      setPokeg2(JSON.parse(localStorage.getItem("pokeg2") || "[Akitoy]"));
+      // setPokeg5(JSON.parse(localStorage.getItem("pokeg5") || "[]"));
+      // setPokeg5(localStorage.getItem("pokeg5") || "[]");
+      // setPokelocalStorage(JSON.parse(localStorage.getItem("pokeg5") || "[Akitoy]"));
+      setPokeg5(JSON.parse(localStorage.getItem("pokeg5") || "[Akitoy]"));
       //Gurdar sola la imgaen en el localStorage
-      // console.log(localStorage.getItem("pokeg2"));
+      // console.log(localStorage.getItem("pokeg5"));
 
-      //Obtener el valor de pokeg2 del localStorage
+      //Obtener el valor de pokeg5 del localStorage
       //  console.log(pokelocalStorage.results);
 
-      // (localStorage.getItem("pokeg2") || "[]").results.map((pokemon: any) => {
+      // (localStorage.getItem("pokeg5") || "[]").results.map((pokemon: any) => {
       //   localStorage.setItem(pokemon.name, pokemon.url);
       // }
     }
   }, []);
 
   const handleDeleteLocalStorage = () => {
-    // localStorage.removeItem("pokeg2");
+    // localStorage.removeItem("pokeg5");
     // console.log("LocalStorage borrado");
   };
 
@@ -85,7 +85,7 @@ const Generacion2 = () => {
       }
     );
 
-    setPokeg2({ ...pokeg2, results: resultado });
+    setPokeg5({ ...pokeg5, results: resultado });
   };
 
   return (
@@ -102,7 +102,7 @@ const Generacion2 = () => {
           value={busqueda}
           onChange={handerChange}
           className="text-center w-full md:w-1/2 bg-gray-100 outline-none p-2 rounded-lg "
-          placeholder="Buscar un pokemon de la segunda generación"
+          placeholder="Buscar un pokemon de la quinta generación"
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +121,7 @@ const Generacion2 = () => {
       </form>
 
       <div className=" ">
-        {pokeg2.results?.length === 0 ? (
+        {pokeg5.results?.length === 0 ? (
           <div className="max-w-md my-20 py-4 px-6 shadow-2xl shadow-red-800 rounded-lg bg-red-600 mx-auto mt-10">
             <div className="flex flex-col">
               <div className="flex items-center gap-2">
@@ -148,9 +148,9 @@ const Generacion2 = () => {
           ""
         )}
       </div>
-      <Card>{pokeg2}</Card>
+      <Card>{pokeg5}</Card>
     </div>
   );
 };
 
-export default Generacion2;
+export default Generacion5;
