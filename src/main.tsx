@@ -2,7 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
+import ClashHome from "./components/clashroyale/ClashHome";
 import Footer from "./components/Footer";
+import LolChamps from "./components/lol/LolChamps";
+import LolUserPage from "./components/lol/LolUserPage";
 import Navbar from "./components/Navbar";
 import Generacion1 from "./components/pokegen/Generacion1";
 import Generacion2 from "./components/pokegen/Generacion2";
@@ -31,6 +34,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <Route path="/:id" element={<Home />} />
         <Route path="/random" element={<Random />} />
         <Route path="/random/:id" element={<RandomId />} />
+        {/* <Route */}
         <Route path="generaciones" element={<Equipo />}>
           <Route path="primera" element={<Generacion1 />} />
           <Route path="segunda" element={<Generacion2 />} />
@@ -41,6 +45,16 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           <Route path="septima" element={<Generacion7 />} />
           <Route path="octava" element={<Generacion8 />} />
         </Route>
+
+        <Route path="/lol" element={<LolUserPage/>}>
+          <Route path="champs" element={<LolChamps/>} />
+        </Route>
+        <Route path="/clashroyale" element={<ClashHome/>} />
+
+        
+
+
+        
         <Route path="*" element={<Error404 />} />
       </Routes>
 

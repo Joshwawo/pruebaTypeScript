@@ -35,7 +35,7 @@ const ModernCard = () => {
         </div>
       </div>
 
-      {/* <div className="second hero">
+      <div className="second hero">
         <img
           className="hero-profile-img object-cover"
           src="https://i.pinimg.com/originals/9f/b1/ff/9fb1ffb05dd28039d1a06ad8e90cbd75.jpg"
@@ -55,9 +55,32 @@ const ModernCard = () => {
           <p>20.02.2019</p>
         </div>
         <div className="hero-btn hover:bg-yellow-400">
-          <a href="#">Learn More</a>
+          <Link to={`lol`}>Ver</Link>
         </div>
-      </div> */}
+      </div>
+      <div className="second hero">
+        <img
+          className="hero-profile-img object-cover"
+          src="https://i.blogs.es/8935db/lroyale/1366_2000.jpg"
+          alt=""
+        />
+        <div className="hero-description-bk"></div>
+        <div className="hero-logo">
+          <img
+            src="https://play-lh.googleusercontent.com/rIvZQ_H3hfmexC8vurmLczLtMNBFtxCEdmb2NwkSPz2ZuJJ5nRPD0HbSJ7YTyFGdADQ"
+            alt=""
+          />
+        </div>
+        <div className="hero-description">
+          <p>Aqui podras ver tu perfil, proximos cofrs y mas!</p>
+        </div>
+        <div className="hero-date">
+          <p>20.02.2019</p>
+        </div>
+        <div className="hero-btn hover:bg-yellow-400">
+          <Link to={`clashroyale`}>Ver</Link>
+        </div>
+      </div>
     </div>
   );
 };

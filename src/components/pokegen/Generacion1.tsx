@@ -1,4 +1,4 @@
-import { useState, useEffect, Children } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Gen1 } from "../../interfaces/Gen1";
 import { Card } from "../Card";
@@ -46,6 +46,8 @@ const Generacion1 = () => {
       // setPokeg1(localStorage.getItem("pokeg1") || "[]");
       // setPokelocalStorage(JSON.parse(localStorage.getItem("pokeg1") || "[Akitoy]"));
       setPokeg1(JSON.parse(localStorage.getItem("pokeg1") || "[Akitoy]"));
+      // setCargando(!cargando);
+
       //Gurdar sola la imgaen en el localStorage
       // console.log(localStorage.getItem("pokeg1"));
 
