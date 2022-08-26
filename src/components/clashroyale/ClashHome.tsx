@@ -11,8 +11,9 @@ const ClashHome = () => {
 
   const getUserTag = async (): Promise<void> => {
     try {
-      const url = "http://localhost:3307/clash/user";
-      const urlChest = `http://localhost:3307/clash/userchest`;
+      // const url = "http://localhost:3307/clash/user";
+      const url = "https://blogporta.herokuapp.com/clash/user";
+      const urlChest = `https://blogporta.herokuapp.com/clash/userchest`;
 
       const respuesta = await axios.get<ClashUserTag>(url, {
         params: {
@@ -20,8 +21,12 @@ const ClashHome = () => {
         },
       });
 
-      const respuestaChest = await axios.get(urlChest);
-      console.log(respuestaChest.data);
+      const respuestaChest = await axios.get(urlChest,{
+        params: {
+          userHashtag: searchText.toUpperCase().replace("#", "%23"),
+        }
+      });
+      // console.log(respuestaChest.data);
       setUserChest(respuestaChest.data.items);
       //   console.log(respuesta.data);
       setClashRoyaleData(respuesta.data);
@@ -33,8 +38,10 @@ const ClashHome = () => {
   useEffect(() => {
     // getUserTag()
   }, []);
-//   console.log(userChest?.[0]?.name);
-console.log(userChest?.map((item:any) => item.name));
+  console.log(userChest);
+  console.log(clashRoyaleData);
+  //   console.log(userChest?.[0]?.name);
+  // console.log(userChest?.map((item: any) => item.name));
   //
   //  const {} = clashRoyaleData;
 
@@ -47,7 +54,11 @@ console.log(userChest?.map((item:any) => item.name));
           className="text-center w-full md:w-1/2 bg-gray-100 outline-none p-2 rounded-lg "
           placeholder="Ingresa tu gamertag de clashroyale eje: #QPYJPJ20"
         />
-        <button onClick={getUserTag}>Enviar</button>
+        <button type="submit" onClick={getUserTag}>
+          Enviar
+        </button>
+        {/* <input type="submit" value="" onClick={getUserTag} /> */}
+        {/* <button type="submit"  onSubmit={getUserTag} > Enviar</button> */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6 text-gray-600 cursor-pointer"
@@ -60,10 +71,11 @@ console.log(userChest?.map((item:any) => item.name));
             strokeLinecap="round"
             strokeLinejoin="round"
             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            onClick={getUserTag}
+            // onClick={getUserTag}
             className="cursor-pointer bg-black w-10 h-10 rounded-full flex justify-center items-center"
           />
         </svg>
+        <p>#QPYJPJ20</p>
       </div>
 
       {Object.keys(clashRoyaleData).length === 0 ? (
@@ -145,18 +157,13 @@ console.log(userChest?.map((item:any) => item.name));
                 </div>
               )
             )}
-
-           
           </div>
         </div>
       )}
-        <p className="py-10">next chest</p>
-    {
-        userChest?.map((item:any) => (
-            <p key={item.index}>{item.name}</p>
-        ))
-    }
-     
+      <p className="py-10">next chest</p>
+      {userChest?.map((item: any) => (
+        <p key={item.index}>{item.name}</p>
+      ))}
     </div>
   );
 };
