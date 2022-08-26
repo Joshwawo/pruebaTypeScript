@@ -78,7 +78,7 @@ const Card = ({ children }: any): any => {
         return (
           <div key={index} className="div mt-10">
             <Link to={`/${name}`}>
-              <div className=" mt-10 p-8 w-96 cursor-pointer rounded-3xl bg-gray-100 hover:text-black/90 hover:font-bold hover:bg-gray-300 transition duration-300 ease-in-out hover:scale-90 hover:drop-shadow-2xl">
+              <div className=" mt-10 p-8 w-96 cursor-pointer rounded-3xl bg-gray-100 dark:bg-black/30 dark:hover:bg-black/10 hover:text-black/90 hover:font-bold hover:bg-gray-300 transition duration-300 ease-in-out hover:scale-90 hover:drop-shadow-2xl">
                 <div className="-mb-20 -translate-y-1/2 transform">
                   {/* <img
                     src={`${getImage}`}
@@ -106,11 +106,11 @@ const Card = ({ children }: any): any => {
                   )}
                 </div>
                 <div className="text-center">
-                  <h3 className="text-center text-gray-600/100 text-3xl font-bold ">
+                  <h3 className="text-center text-gray-600/100 dark:text-gray-400 text-3xl font-bold ">
                     {name}
                   </h3>
-                  <p className=" text-gray-800/50 ">#{numerosUrl}</p>
-                  <p className="text-gray-800/50 pt-2 font-bold">Ver Pokemon</p>
+                  <p className=" text-gray-800/50 dark:text-gray-400 ">#{numerosUrl}</p>
+                  <p className="text-gray-800/50 pt-2 font-bold dark:text-gray-400">Ver Pokemon</p>
                 </div>
               </div>
             </Link>

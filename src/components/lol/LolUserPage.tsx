@@ -49,7 +49,7 @@ const LolUserPage = () => {
   //   }
   console.log(Object.keys(playerResult) === undefined);
   return (
-    <div>
+    <div className=" h-screen">
       <p className=" text-center pt-5">Hola desde LolUserPage</p>
       {/* <div className="root">
         <button onClick={getPlayerName}>Buscar</button>

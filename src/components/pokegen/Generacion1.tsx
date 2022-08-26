@@ -108,7 +108,7 @@ const Generacion1 = () => {
           type="text"
           value={busqueda}
           onChange={handerChange}
-          className="text-center w-full md:w-1/2 bg-gray-100 outline-none p-2 rounded-lg "
+          className="text-center w-full md:w-1/2 bg-gray-100 dark:bg-gray-900/20  outline-none p-2 rounded-lg  dark:text-white/80"
           placeholder="Buscar un pokemon de la primera generación"
         />
         <svg

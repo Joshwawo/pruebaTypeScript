@@ -3,15 +3,34 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
+  const [dark, setDark] = useState(false);
+
+  if (localStorage.theme === "dark") {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+  const toggleDarkMode = () => {
+    localStorage.theme = localStorage.theme === "dark" ? "light" : "dark";
+    document.documentElement.classList.toggle("dark");
+    setDark(!dark);
+  };
+
+  document.body.style.backgroundColor = dark ? "#fff " : "#1b1c1e";
+
 
   return (
-    <nav className="w-full bg-white shadow">
+    <nav className="w-full bg-white dark:bg-[#1B1C1E] ">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Link to="/">
-              <h2 className="text-2xl font-bold">Jorge Powiki</h2>
+              <h2 className="text-2xl font-bold dark:text-white/80">Jorge Powiki</h2>
             </Link>
+            <button onClick={toggleDarkMode}>
+              {" "}
+              {dark === true ? <span className=" text-green-400">Mode: light</span> : <span className=" text-red-400">mode: dark</span> }{" "}
+            </button>
 
             <div className="md:hidden">
               <button
@@ -60,12 +79,12 @@ const Navbar = () => {
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
               <li className="text-gray-600 hover:text-green-600">
                 <Link to="/">
-                  <p>Home</p>
+                  <p className="  dark:text-white/80">Home</p>
                 </Link>
               </li>
               <li className="text-gray-600 hover:text-green-600">
                 <Link to="random">
-                  <p>Random Pokemon</p>
+                  <p className=" dark:text-white/80">Random Pokemon</p>
                 </Link>
               </li>
               {/* <li className="text-gray-600 hover:text-green-600">

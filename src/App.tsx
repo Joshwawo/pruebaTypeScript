@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Id";
 import Random from "./pages/Random";
 import Error404 from "./pages/Error404";
 import { Gen1 } from "./interfaces/Gen1";
-import axios from "axios";
 import Top from "./img/svgTop.svg";
 import Bottom from "./img/svgBottom.svg";
 import { ToastContainer, toast } from "react-toastify";
@@ -49,7 +47,7 @@ const App = () => {
 
       
       <div className=" ">
-        <p className=" tracking-widest  title-font font-medium text-gray-500 mb-1 text-center py-5 ">
+        <p className=" tracking-widest  title-font font-medium text-gray-500 dark:text-white/80 mb-1 text-center py-5 ">
           Bienvenido a eligue alguna app C:
         </p>
         {/* <Link to={`/generaciones`}>

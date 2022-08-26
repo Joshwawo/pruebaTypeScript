@@ -26,39 +26,38 @@ import RandomId from "./pages/RandomId";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Navbar />
-
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/:id" element={<Home />} />
-        <Route path="/random" element={<Random />} />
-        <Route path="/random/:id" element={<RandomId />} />
-        {/* <Route */}
-        <Route path="generaciones" element={<Equipo />}>
-          <Route path="primera" element={<Generacion1 />} />
-          <Route path="segunda" element={<Generacion2 />} />
-          <Route path="tercera" element={<Generacion3 />} />
-          <Route path="cuarta" element={<Generacion4 />} />
-          <Route path="quinta" element={<Generacion5 />} />
-          <Route path="sexta" element={<Generacion6 />} />
-          <Route path="septima" element={<Generacion7 />} />
-          <Route path="octava" element={<Generacion8 />} />
-        </Route>
-
-        <Route path="/lol" element={<LolUserPage/>}>
-          <Route path="champs" element={<LolChamps/>} />
-        </Route>
-        <Route path="/clashroyale" element={<ClashHome/>} />
-
-        
-
-
-        
-        <Route path="*" element={<Error404 />} />
-      </Routes>
-
-      <Footer />
-    </BrowserRouter>
+   <div className=" ">
+     <BrowserRouter>
+       <Navbar />
+    
+       <Routes>
+         <Route path="/" element={<App />} />
+         <Route path="/:id" element={<Home />} />
+         <Route path="/random" element={<Random />} />
+         <Route path="/random/:id" element={<RandomId />} />
+         {/* <Route */}
+         <Route path="generaciones" element={<Equipo />}>
+           <Route path="primera" element={<Generacion1 />} />
+           <Route path="segunda" element={<Generacion2 />} />
+           <Route path="tercera" element={<Generacion3 />} />
+           <Route path="cuarta" element={<Generacion4 />} />
+           <Route path="quinta" element={<Generacion5 />} />
+           <Route path="sexta" element={<Generacion6 />} />
+           <Route path="septima" element={<Generacion7 />} />
+           <Route path="octava" element={<Generacion8 />} />
+         </Route>
+    
+         <Route path="/lol" element={<LolUserPage/>}>
+           <Route path="champs" element={<LolChamps/>} />
+         </Route>
+         <Route path="/clashroyale" element={<ClashHome/>} />
+    
+         
+         <Route path="*" element={<Error404 />} />
+       </Routes>
+    
+       <Footer />
+     </BrowserRouter>
+   </div>
   </React.StrictMode>
 );

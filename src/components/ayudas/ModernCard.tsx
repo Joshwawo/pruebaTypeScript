@@ -9,7 +9,7 @@ const ModernCard = () => {
 
       <div className="first hero">
         <img
-          className="hero-profile-img object-cover"
+          className="hero-profile-img object-cover bg-white/90"
           src="https://cdn.custom-cursor.com/collections/129/cover-pokemon-preview.png"
           alt=""
         />
