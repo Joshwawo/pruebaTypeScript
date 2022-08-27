@@ -21,10 +21,22 @@ const Navbar = () => {
   // Whenever the user explicitly chooses dark mode
   localStorage.theme = "dark";
 
+  if(localStorage.theme === "dark"){
+    document.body.style.backgroundColor = "black";
+  }else{
+    document.body.style.backgroundColor = "white";
+  }
+
   // localStorage.theme = localStorage.theme == "dark" ? "light" : "dark";
   const toggleDarkMode = () => {
     localStorage.theme = localStorage.theme === "dark" ? "light" : "dark";
     document.documentElement.classList.toggle("dark");
+
+    if(localStorage.theme === "dark"){
+      document.body.style.backgroundColor = "black";
+    }else{
+      document.body.style.backgroundColor = "white";
+    }
     // document.body.style.backgroundColor = localStorage.theme === "dark" ? "white" : "#1a1a1a";
     // console.log(localStorage.theme);
     // if (localStorage.theme === "dark") {
