@@ -21,23 +21,23 @@ const Navbar = () => {
   // Whenever the user explicitly chooses dark mode
   localStorage.theme = "dark";
 
-  localStorage.theme = localStorage.theme == "dark" ? "light" : "dark";
+  // localStorage.theme = localStorage.theme == "dark" ? "light" : "dark";
   const toggleDarkMode = () => {
     localStorage.theme = localStorage.theme === "dark" ? "light" : "dark";
     document.documentElement.classList.toggle("dark");
     // document.body.style.backgroundColor = localStorage.theme === "dark" ? "white" : "#1a1a1a";
-    console.log(localStorage.theme);
-    if (localStorage.theme === "dark") {
-      // document.body.removeAttribute("style");
-      let bgblack = (document.body.style.backgroundColor = "black");
-      // console.log(bgblack);
-      localStorage.theme = "dark";
-    } else {
-      // document.body.removeAttribute("style");
-      let bgwhite = (document.body.style.backgroundColor = "white");
-      // console.log(bgwhite);
-      localStorage.theme = "light";
-    }
+    // console.log(localStorage.theme);
+    // if (localStorage.theme === "dark") {
+    //   // document.body.removeAttribute("style");
+    //   let bgblack = (document.body.style.backgroundColor = "black");
+    //   // console.log(bgblack);
+    //   localStorage.theme = "dark";
+    // } else {
+    //   // document.body.removeAttribute("style");
+    //   let bgwhite = (document.body.style.backgroundColor = "white");
+    //   // console.log(bgwhite);
+    //   localStorage.theme = "light";
+    // }
   };
 
   return (
