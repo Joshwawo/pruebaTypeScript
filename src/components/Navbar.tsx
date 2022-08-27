@@ -3,33 +3,56 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
-  const [dark, setDark] = useState(false);
-
-  if (localStorage.theme === "dark") {
+  // const [dark, setDark] = useState(Boolean(localStorage.getItem("dark")));
+  // console.log(window.matchMedia.p)
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
     document.documentElement.classList.add("dark");
   } else {
     document.documentElement.classList.remove("dark");
   }
+
+  // Whenever the user explicitly chooses light mode
+  localStorage.theme = "light";
+
+  // Whenever the user explicitly chooses dark mode
+  localStorage.theme = "dark";
+
+  localStorage.theme = localStorage.theme == "dark" ? "light" : "dark";
   const toggleDarkMode = () => {
     localStorage.theme = localStorage.theme === "dark" ? "light" : "dark";
     document.documentElement.classList.toggle("dark");
-    setDark(!dark);
+    // document.body.style.backgroundColor = localStorage.theme === "dark" ? "white" : "#1a1a1a";
+    console.log(localStorage.theme);
+    if (localStorage.theme === "dark") {
+      // document.body.removeAttribute("style");
+      let bgblack = (document.body.style.backgroundColor = "black");
+      // console.log(bgblack);
+      localStorage.theme = "dark";
+    } else {
+      // document.body.removeAttribute("style");
+      let bgwhite = (document.body.style.backgroundColor = "white");
+      // console.log(bgwhite);
+      localStorage.theme = "light";
+    }
   };
 
-  document.body.style.backgroundColor = dark ? "#fff " : "#1b1c1e";
-
-
   return (
-    <nav className="w-full bg-white dark:bg-[#1B1C1E] ">
+    <nav className="w-full  bg-white dark:bg-black">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Link to="/">
-              <h2 className="text-2xl font-bold dark:text-white/80">Jorge Powiki</h2>
+              <h2 className="text-2xl font-bold dark:text-white/80">
+                Jorge Powiki
+              </h2>
             </Link>
-            <button onClick={toggleDarkMode}>
+            <button className=" dark:text-white" onClick={toggleDarkMode}>
               {" "}
-              {dark === true ? <span className=" text-green-400">Mode: light</span> : <span className=" text-red-400">mode: dark</span> }{" "}
+              Mode:🌙🌞
             </button>
 
             <div className="md:hidden">

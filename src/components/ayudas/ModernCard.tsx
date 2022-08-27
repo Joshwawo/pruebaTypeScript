@@ -22,15 +22,15 @@ const ModernCard = () => {
           />
         </div>
         <div className="hero-description">
-          <p className="text-black/60">PokeApp, con todas las generaciones y un buscador  </p>
+          <p className="text-black/60">PokeApp, with all generations and a search engine  </p>
         </div>
-        <div className="hero-date text-black/80">
+        {/* <div className="hero-date text-black/80">
           <p>En este proyecto</p>
           <p>React, Tailwind, TypeScript</p>
-        </div>
+        </div> */}
         <div className="hero-btn hover:bg-yellow-600/80 rounded-md">
         <Link to={`/generaciones`}>
-          <p className="text-black/60 text-xl ">Ir a ver</p>
+          See More..
         </Link>
         </div>
       </div>
@@ -51,11 +51,11 @@ const ModernCard = () => {
         <div className="hero-description">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
-        <div className="hero-date">
+        {/* <div className="hero-date">
           <p>20.02.2019</p>
-        </div>
+        </div> */}
         <div className="hero-btn hover:bg-yellow-400">
-          <Link to={`lol`}>Ver</Link>
+          <Link to={`lol`}>See More..</Link>
         </div>
       </div>
       <div className="second hero">
@@ -72,13 +72,13 @@ const ModernCard = () => {
           />
         </div>
         <div className="hero-description">
-          <p>Aqui podras ver tu perfil, proximos cofrs y mas!</p>
+          <p>Here you can view your profile, upcoming chests and more!</p>
         </div>
-        <div className="hero-date">
+        {/* <div className="hero-date">
           <p>20.02.2019</p>
-        </div>
+        </div> */}
         <div className="hero-btn hover:bg-yellow-400">
-          <Link to={`clashroyale`}>Ver</Link>
+          <Link to={`clashroyale`}>See More..</Link>
         </div>
       </div>
     </div>

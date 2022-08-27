@@ -47,8 +47,8 @@ const App = () => {
 
       
       <div className=" ">
-        <p className=" tracking-widest  title-font font-medium text-gray-500 dark:text-white/80 mb-1 text-center py-5 ">
-          Bienvenido a eligue alguna app C:
+        <p className=" tracking-widest  title-font font-medium   dark:text-white/80 mb-1 text-center py-5 ">
+        Welcome choose any C app:
         </p>
         {/* <Link to={`/generaciones`}>
           <p className="">Ir a Equipo</p>

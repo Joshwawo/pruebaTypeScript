@@ -55,7 +55,7 @@ const ClashHome = () => {
           placeholder="Ingresa tu gamertag de clashroyale eje: #QPYJPJ20"
         />
         <button type="submit" onClick={getUserTag}>
-          Enviar
+          Send
         </button>
         {/* <input type="submit" value="" onClick={getUserTag} /> */}
         {/* <button type="submit"  onSubmit={getUserTag} > Enviar</button> */}
@@ -80,13 +80,13 @@ const ClashHome = () => {
 
       {Object.keys(clashRoyaleData).length === 0 ? (
         <p className=" pt-5 text-center text-gray-500/80 outline-none p-2 rounded-lg">
-          Empieza buscando a alguien con un gametag correcto Ejemplo: #QPYJPJ20{" "}
+         Start by looking for someone with a correct gametag Example: #QPYJPJ20{" "}
         </p>
       ) : clashRoyaleData === undefined ? (
         ""
       ) : (
         <div className=" pt-10  ">
-          <div className="text-justify">
+          <div className="text-justify dark:text-white">
             <p>Player Name: {clashRoyaleData.name}</p>
             <p>Player Tag: {clashRoyaleData.tag}</p>
             <p>
@@ -118,7 +118,7 @@ const ClashHome = () => {
             <p>Clan cards collected</p>
           </div>
           <p className="py-5">Current Deck: </p>
-          <div className="divo grid grid-cols-5 place-items-center">
+          <div className="divo grid md:grid-cols-3 xl:grid-cols-4 place-items-center ">
             {clashRoyaleData.currentDeck?.map(
               ({
                 count,
@@ -129,15 +129,15 @@ const ClashHome = () => {
                 name,
                 starLevel,
               }) => (
-                <div key={id} className="divos w-1/2">
+                <div key={id} className="divo dark:bg-gray-500/20">
                   <div className="max-w-sm rounded overflow-hidden shadow-lg">
                     <img
-                      className="w-full"
+                      className="w-full object-cover"
                       src={medium}
                       alt="Sunset in the mountains"
                     />
                     <div className="px-6 py-4">
-                      <div className="font-bold text-xl mb-2">{name}</div>
+                      <div className="font-bold text-xl mb-2 dark:text-white">{name}</div>
                     </div>
                     <div className="px-6 pt-4 pb-2">
                       <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
@@ -160,9 +160,9 @@ const ClashHome = () => {
           </div>
         </div>
       )}
-      <p className="py-10">next chest</p>
+      <p className="py-10 dark:text-white">next chest</p>
       {userChest?.map((item: any) => (
-        <p key={item.index}>{item.name}</p>
+        <p key={item.index} className="dark:text-white" >{item.name}</p>
       ))}
     </div>
   );

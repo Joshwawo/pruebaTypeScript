@@ -48,13 +48,13 @@ const LolUserPage = () => {
   //     setResultadoState(false);
   //   }
   console.log(Object.keys(playerResult) === undefined);
+
   return (
     <div className=" h-screen">
-      <p className=" text-center pt-5">Hola desde LolUserPage</p>
-      {/* <div className="root">
-        <button onClick={getPlayerName}>Buscar</button>
-        <input type="text" onChange={e=> setSearchText(e.target.value)} />
-      </div> */}
+      <div className=" mx-auto text-center">
+        <p className=" bg-yellow-300 text-center mx-auto mt-5  inline-block rounded-md px-2 py-1">Riot games has not accepted a permanent api key for me, so this option may not work. </p>
+      </div>
+     
 
       <div className="md:col-span-4 flex items-center justify-center gap-2 mt-10">
         <input
@@ -63,7 +63,7 @@ const LolUserPage = () => {
           className="text-center w-full md:w-1/2 bg-gray-100 outline-none p-2 rounded-lg "
           placeholder="Ingresa un nombre de invocador"
         />
-        <button onClick={getPlayerName}>Enviar</button>
+        <button onClick={getPlayerName}>Send</button>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6 text-gray-600 cursor-pointer"
@@ -84,7 +84,9 @@ const LolUserPage = () => {
       <br />
       <div className=" root">
         {Object.keys(playerResult).length === 0 ? (
-          <p className=" text-center pt-5">Ingresa un nombre de invocador</p>
+          <p className=" text-center pt-5 dark:text-white">Enter a summoner name
+
+          </p>
         ) : (
           <div className="bg-gray-50 rounded-lg shadow hover:shadow-lg transition-all w-[20%] mx-auto">
             <div className="mb-4">
@@ -104,7 +106,7 @@ const LolUserPage = () => {
         {/* {/* {errorResult ? <p className="text-center">No hay resultados</p> : null} */}
         {errorResult && searchText === "" ? (
           <p className="text-center text-red-300">
-            Ingresa un nombre de invocador valido{" "}
+            Enter a valid summoner name{" "}
           </p>
         ) : null}
       </div>

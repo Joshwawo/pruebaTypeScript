@@ -26,7 +26,7 @@ import RandomId from "./pages/RandomId";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-   <div className=" ">
+   <div className=" dark:bg-black">
      <BrowserRouter>
        <Navbar />
     

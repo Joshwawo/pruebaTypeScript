@@ -35,7 +35,7 @@ const Equipo = () => {
     <div className="root">
       {/* <p>Desde pagina Equipo</p> */}
       <p className=" tracking-widest  title-font font-medium text-gray-500 mb-1 text-center py-5 ">
-        Eligue alguna generacion
+      Choose a generation
       </p>
       <ToastContainer />
 
