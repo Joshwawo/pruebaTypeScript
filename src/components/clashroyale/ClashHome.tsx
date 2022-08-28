@@ -1,12 +1,18 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { ClashUserTag } from "../../interfaces/ClashRoyale";
+import {
+  ClashUserTag,
+  ClashUserChest,
+  Item,
+} from "../../interfaces/ClashRoyale";
 
 const ClashHome = () => {
   const [clashRoyaleData, setClashRoyaleData] = useState<ClashUserTag>(
     {} as ClashUserTag
   );
-  const [userChest, setUserChest] = useState<any>([]);
+  const [userChest, setUserChest] = useState<ClashUserChest>(
+    {} as ClashUserChest
+  );
   const [searchText, setSearchText] = useState<string>("#QPYJPJ20");
 
   const getUserTag = async (): Promise<void> => {
@@ -21,13 +27,13 @@ const ClashHome = () => {
         },
       });
 
-      const respuestaChest = await axios.get(urlChest,{
+      const respuestaChest = await axios.get<ClashUserChest>(urlChest, {
         params: {
           userHashtag: searchText.toUpperCase().replace("#", "%23"),
-        }
+        },
       });
       // console.log(respuestaChest.data);
-      setUserChest(respuestaChest.data.items);
+      setUserChest(respuestaChest.data);
       //   console.log(respuesta.data);
       setClashRoyaleData(respuesta.data);
     } catch (error) {
@@ -38,12 +44,21 @@ const ClashHome = () => {
   useEffect(() => {
     // getUserTag()
   }, []);
-  console.log(userChest);
-  console.log(clashRoyaleData);
-  //   console.log(userChest?.[0]?.name);
-  // console.log(userChest?.map((item: any) => item.name));
-  //
-  //  const {} = clashRoyaleData;
+  // console.log(userChest);
+  // console.log(clashRoyaleData);
+
+  // console.log(userChest)
+  // Object.values(userChest).map((key)=>{
+  //   console.log(key)
+  // })
+
+  // console.log(userChest.items?.map((chest, index)=>{
+  // console.log(chest.name.toLowerCase().replace(" ", "-"))
+  //  return console.log(chest.name.toLowerCase()[-2])
+  // console.log(chest.name.toLowerCase().replace(" ", "-").replace(" ", "-").includes('overflowing-gold-crate'))
+
+  // }
+  // ))
 
   return (
     <div className="root">
@@ -54,7 +69,7 @@ const ClashHome = () => {
           className="text-center w-full md:w-1/2 bg-gray-100 outline-none p-2 rounded-lg "
           placeholder="Ingresa tu gamertag de clashroyale eje: #QPYJPJ20"
         />
-        <button type="submit" onClick={getUserTag}>
+        <button type="submit" onClick={getUserTag} className=" dark:text-white">
           Send
         </button>
         {/* <input type="submit" value="" onClick={getUserTag} /> */}
@@ -75,50 +90,50 @@ const ClashHome = () => {
             className="cursor-pointer bg-black w-10 h-10 rounded-full flex justify-center items-center"
           />
         </svg>
-        <p>#QPYJPJ20</p>
+        <p className=" dark:text-white">#QPYJPJ20</p>
       </div>
 
       {Object.keys(clashRoyaleData).length === 0 ? (
         <p className=" pt-5 text-center text-gray-500/80 outline-none p-2 rounded-lg">
-         Start by looking for someone with a correct gametag Example: #QPYJPJ20{" "}
+          Start by looking for someone with a correct gametag Example: #QPYJPJ20{" "}
         </p>
       ) : clashRoyaleData === undefined ? (
         ""
       ) : (
         <div className=" pt-10  ">
-          <div className="text-justify dark:text-white">
-            <p>Player Name: {clashRoyaleData.name}</p>
-            <p>Player Tag: {clashRoyaleData.tag}</p>
-            <p>
-              Clan: {clashRoyaleData.clan?.name}{" "}
-              <span>{clashRoyaleData.clan?.tag}</span>
-            </p>
-            <p>Donatios: {clashRoyaleData.donations}</p>
-            <p>Donatios received: {clashRoyaleData.donationsReceived}</p>
-            <p>Total Donations: {clashRoyaleData.totalDonations}</p>
-            <p>Role: {clashRoyaleData.role}</p>
-            <p>Arena: {clashRoyaleData.arena?.name}</p>
-            <p>Start Points: {clashRoyaleData.starPoints}</p>
-            <p>Exp Points: {clashRoyaleData.expPoints}</p>
-            <p>Trophies: {clashRoyaleData.trophies}</p>
-            <p>Best Trophies: {clashRoyaleData.bestTrophies}</p>
-            <p>Exp Level: {clashRoyaleData.expLevel}</p>
-            <p>Wins: {clashRoyaleData.wins}</p>
-            <p>Losses: {clashRoyaleData.losses}</p>
-            {/* <p>Win Percentage: {clashRoyaleData.wins / clashRoyaleData.losses}</p> */}
-            <p>battle Count: {clashRoyaleData.battleCount}</p>
-            <p>three Crown Wins: {clashRoyaleData.threeCrownWins}</p>
-            <p>challenge Max Wins: {clashRoyaleData.challengeMaxWins}</p>
-            <p>challenge Cards Won: {clashRoyaleData.challengeCardsWon}</p>
-            <p>tournament Cards Won: {clashRoyaleData.tournamentCardsWon}</p>
-            <p>
-              tournamentBattleCount: {clashRoyaleData.tournamentBattleCount}
-            </p>
-            <p>War dat wins: {clashRoyaleData.warDayWins}</p>
-            <p>Clan cards collected</p>
+          <div className="text-justify bg-red-40 grid md:grid-cols-4 items-start place-items-center gap-y-5 dark:text-white">
+            <div className="PERFIl font-medium   b-yellow-200">
+              <p className=" font-bold text-xl">Player 😎</p>
+              <p className=" ">Player Name: {clashRoyaleData.name}</p>
+              <p>Player Tag: {clashRoyaleData.clan?.tag}</p>
+              <p>Arena: {clashRoyaleData.arena.name}</p>
+              <p>Clan: {clashRoyaleData.clan?.name}</p>
+              <p>Role: {clashRoyaleData.role}</p>
+              <p>Clan Tag: {clashRoyaleData.clan?.tag}</p>
+            </div>
+            <div className="trophies font-medium   b-green-300">
+              <p className=" font-bold text-xl">TROPHIES🏆</p>
+              <p>Highest: {clashRoyaleData.trophies}</p>
+              <p>Highest Trophies: {clashRoyaleData.bestTrophies}</p>
+            </div>
+            <div className="stats font-medium   b-blue-200">
+              <p className=" font-bold text-xl">STATS ROYALE📊</p>
+              <p>Wins: {clashRoyaleData.wins}</p>
+              <p>Losses: {clashRoyaleData.losses}</p>
+              <p>Three Crown Wins: {clashRoyaleData.threeCrownWins}</p>
+              <p>Total Donations: {clashRoyaleData.donations}</p>
+            </div>
+
+            <div className="clanwars font-medium  ">
+              <p className=" font-bold text-xl">CLANWARS🏆</p>
+              <p>Clan War Wins: {clashRoyaleData.warDayWins}</p>
+              {/* <p>Clan Cards Collected: {clashRoyaleData.}</p> */}
+            </div>
           </div>
-          <p className="py-5">Current Deck: </p>
-          <div className="divo grid md:grid-cols-3 xl:grid-cols-4 place-items-center ">
+          <p className="py-5 font-bold text-xl dark:text-white">
+            Current Deck:{" "}
+          </p>
+          <div className="divo grid grid-cols-4 md:grid-cols-4 xl:grid-cols-8 place-items-center ">
             {clashRoyaleData.currentDeck?.map(
               ({
                 count,
@@ -129,41 +144,42 @@ const ClashHome = () => {
                 name,
                 starLevel,
               }) => (
-                <div key={id} className="divo dark:bg-gray-500/20">
-                  <div className="max-w-sm rounded overflow-hidden shadow-lg">
-                    <img
-                      className="w-full object-cover"
-                      src={medium}
-                      alt="Sunset in the mountains"
-                    />
-                    <div className="px-6 py-4">
-                      <div className="font-bold text-xl mb-2 dark:text-white">{name}</div>
-                    </div>
-                    <div className="px-6 pt-4 pb-2">
-                      <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                        Level: {level}
-                      </span>
-                      <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                        Starlevel: {starLevel}
-                      </span>
-                      <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                        MaxLevel:{maxLevel}
-                      </span>
-                      <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                        Count: {count}
-                      </span>
-                    </div>
-                  </div>
+                <div key={id} className="">
+                  <img className=" object-cover w-36" src={medium} alt={name} />
                 </div>
               )
             )}
           </div>
         </div>
       )}
-      <p className="py-10 dark:text-white">next chest</p>
-      {userChest?.map((item: any) => (
-        <p key={item.index} className="dark:text-white" >{item.name}</p>
-      ))}
+      {/* <p className="py-10 dark:text-white">next chest</p> */}
+
+      <div className="divos grid grid-cols-5 gap-y-6 mt-10">
+        {userChest.items?.map((key, index) => {
+          let imga = key.name.toLowerCase().replace(" ", "-");
+          let imagenm = key.name
+            .toLowerCase()
+            .replace(" ", "-")
+            .replace(" ", "-")
+            .replace("mega-lightning-chest", "super-lightning-chest")
+            .replace("overflowing-gold-crate","PlentifulCrate");
+          console.log(imagenm);
+          return (
+            <div key={index} className="flex justify-center items-center">
+              {/* <img className="object-cover w-36" src={key.iconUrls.medium} alt={key.name} /> */}
+              {/* <p className=" dark:text-white">{key.name}</p> */}
+              <p className=" dark:text-white relative left-8 top-9 text-center">{key.index ==0 ? 'Next': key.index }</p>
+              {/* <p className=" text-red-600 relative left-7 top-8">{key.index}p</p> */}
+
+              <img
+                src={`https://cdn.statsroyale.com/images/${imagenm}.png`}
+                alt={`${imagenm}`}
+                className=" dark:text-white w-12 after:contents"
+              />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

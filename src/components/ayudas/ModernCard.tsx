@@ -54,7 +54,7 @@ const ModernCard = () => {
         {/* <div className="hero-date">
           <p>20.02.2019</p>
         </div> */}
-        <div className="hero-btn hover:bg-yellow-400">
+        <div className="hero-btn hover:bg-yellow-600/80 rounded-md">
           <Link to={`lol`}>See More..</Link>
         </div>
       </div>
@@ -77,7 +77,7 @@ const ModernCard = () => {
         {/* <div className="hero-date">
           <p>20.02.2019</p>
         </div> */}
-        <div className="hero-btn hover:bg-yellow-400">
+        <div className="hero-btn hover:bg-yellow-600/80 rounded-md">
           <Link to={`clashroyale`}>See More..</Link>
         </div>
       </div>

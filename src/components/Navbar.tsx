@@ -22,7 +22,7 @@ const Navbar = () => {
   localStorage.theme = "dark";
 
   if(localStorage.theme === "dark"){
-    document.body.style.backgroundColor = "black";
+    document.body.style.backgroundColor = "#0f1109";
   }else{
     document.body.style.backgroundColor = "white";
   }
@@ -33,7 +33,7 @@ const Navbar = () => {
     document.documentElement.classList.toggle("dark");
 
     if(localStorage.theme === "dark"){
-      document.body.style.backgroundColor = "black";
+      document.body.style.backgroundColor = "#0f1109";
     }else{
       document.body.style.backgroundColor = "white";
     }
@@ -53,7 +53,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full  bg-white dark:bg-black">
+    <nav className="w-full  bg-white dark:bg-[#0f1109]">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
