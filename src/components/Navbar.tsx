@@ -59,7 +59,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <Link to="/">
               <h2 className="text-2xl font-bold dark:text-white/80">
-                Jorge Powiki
+                Arcade<span className="text-blue-500"> Games </span>
               </h2>
             </Link>
             <button className=" dark:text-white" onClick={toggleDarkMode}>

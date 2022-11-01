@@ -42,13 +42,13 @@ const Equipo = () => {
       <img
         src={Top}
         alt=""
-        className="fixed left-1 bottom-4 animate-bounce duration-600 ease-in-out transform -translate-y-1/2 cursor-pointer"
+        className="fixed dark:bg-slate-400 dark:rounded-lg left-1 bottom-4 animate-bounce duration-600 ease-in-out transform -translate-y-1/2 cursor-pointer"
         onClick={clickToTop}
       />
       <img
         src={Bottom}
         alt=""
-        className="fixed right-0 bottom-4  animate-bounce duration-600 ease-in-out transform -translate-y-1/2 cursor-pointer"
+        className="fixed dark:bg-slate-400 dark:rounded-lg right-0 bottom-4  animate-bounce duration-600 ease-in-out transform -translate-y-1/2 cursor-pointer"
         onClick={clickToBottom}
       />
       <div className="flex items-center justify-center">

@@ -21,6 +21,7 @@ import Une from "./components/testeo/Une";
 import "./index.css";
 import Error404 from "./pages/Error404";
 import Home from "./pages/Id";
+import Json from "./pages/Json";
 import Random from "./pages/Random";
 import RandomId from "./pages/RandomId";
 
@@ -51,7 +52,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
            <Route path="champs" element={<LolChamps/>} />
          </Route>
          <Route path="/clashroyale" element={<ClashHome/>} />
-    
+        <Route path="/json" element={<Json/>} />
          
          <Route path="*" element={<Error404 />} />
        </Routes>
