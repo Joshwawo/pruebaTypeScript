@@ -25,13 +25,14 @@ const ClashHome = () => {
 
   const getUserTag = async (): Promise<void> => {
     if (searchText === "") {
-      setAlerta({ error: true, message: "Enter user tag" });
+      setAlerta({ error: true, message: "Enter user tag", });
       return;
     }
 
     try {
-      // const url = "http://localhost:3307/clash/user";
-      const host = "https://api-projects-production.up.railway.app";
+      const host = "http://localhost:3003";
+      
+      // const host = "https://api-projects-production.up.railway.app";
       // const urlH = "http://localhost:3003/clash/player";
       // const urlUser= "https://api-projects-production.up.railway.app"
       // const urlHChest = "http://localhost:3003/clash/upcomingchests";
@@ -43,7 +44,7 @@ const ClashHome = () => {
       const respuesta = await axios.get<ClashUserTag>(`${host}/clash/player`, {
         headers:{
           "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_JWT}`,
+          Authorization: `Bearer ${import.meta.env.VITE_JWTOKEN}`,
         },
         params: {
           userHashTag: searchText,
@@ -51,27 +52,38 @@ const ClashHome = () => {
       });
 
       const respuestaChest = await axios.get<ClashUserChest>(urlHChest, {
+        headers:{
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_JWTOKEN}`,
+        },
         params: {
           userHashTag: searchText,
+          
         },
       });
       // console.log(respuestaChest.data);
       setUserChest(respuestaChest.data);
       //   console.log(respuesta.data);
       setClashRoyaleData(respuesta.data);
-      console.log(respuesta);
-      setSearchText("");
-      setAlerta({});
+      // console.log(respuesta);
+      // setSearchText("");
+      setAlerta({
+        
+      });
       //what type is error?
     } catch (error: any) {
-      console.log(error.response.data.message);
-      console.log("No llego al catch");
+      // console.log(error.response.data.message);
+      // console.log("No llego al catch");
+      // console.log(import.meta.env.VITE_JWT);
       setAlerta({
         message: error.response.data.message,
         error: true,
       });
+      
     }
   };
+
+
 
   useEffect(() => {
     // getUserTag()
@@ -94,9 +106,13 @@ const ClashHome = () => {
 
   const { message } = alerta as alertasTypes;
 
+  
+
   return (
     <div className="root">
       {message && <Alerta alerta={alerta} />}
+     
+      {/* <p className="text-red-300">{import.meta.env.VITE_JWT}</p> */}
       <div className="md:col-span-4 flex items-center justify-center gap-2 mt-10">
         <input
           type="text"
