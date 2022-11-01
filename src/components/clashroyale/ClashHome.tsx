@@ -30,9 +30,9 @@ const ClashHome = () => {
     }
 
     try {
-      const host = "http://localhost:3003";
+      // const host = "http://localhost:3003";
       
-      // const host = "https://api-projects-production.up.railway.app";
+      const host = "https://api-projects-production.up.railway.app";
       // const urlH = "http://localhost:3003/clash/player";
       // const urlUser= "https://api-projects-production.up.railway.app"
       // const urlHChest = "http://localhost:3003/clash/upcomingchests";
@@ -67,10 +67,8 @@ const ClashHome = () => {
       setClashRoyaleData(respuesta.data);
       // console.log(respuesta);
       // setSearchText("");
-      setAlerta({
-        
-      });
-      //what type is error?
+      setAlerta({});
+      
     } catch (error: any) {
       // console.log(error.response.data.message);
       // console.log("No llego al catch");
